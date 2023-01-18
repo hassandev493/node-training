@@ -4,6 +4,7 @@ module.exports = {
   getPosts
 }
 
+
 async function getPosts(req,res){
   const reqBody = req.body
   const reqParams = req.params
@@ -11,4 +12,5 @@ async function getPosts(req,res){
   
   res.send({reqBody , reqParams})
 }
+
 
