@@ -1,6 +1,6 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
-const {users} = prisma;
+const {user} = prisma;
 
 module.exports = {
     addOne,
@@ -12,28 +12,28 @@ module.exports = {
 
 function findOne(paramsObject) {
     const options = paramsObject;
-    return users.findFirst(options);
+    return user.findFirst(options);
 }
 
-function addOne(user) {
-    return users.create({
-        data: {...user} 
+function addOne(userData) {
+    return user.create({
+        data: {...userData} 
     });
 }
 
 
 function findWhere(paramsObject) {
     const options = paramsObject;
-    return users.findMany(options);
+    return user.findMany(options);
 }
 
 
 function update(data, options) {
-    return users.update(data, options);
+    return user.update(data, options);
 }
 
 function deleteOne(id) {
-    return users.delete({
+    return user.delete({
         where: {
           id
         },
